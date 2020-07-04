@@ -1,7 +1,7 @@
-* Creating a virtual environment
+* Create a virtual environment
 py -m venv env
 
-* Exiting from the virtual environment
+* Exit from the virtual environment
 deactivate
 
 * Activate virtual environment
