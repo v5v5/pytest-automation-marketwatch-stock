@@ -1,6 +1,3 @@
-* Install package virtualenv
-py -m pip install virtualenv
-
 * Creating a virtual environment
 py -m venv env
 
@@ -13,12 +10,11 @@ deactivate
 * Test virtual enviroment
 Test-Path env:VIRTUAL_ENV
 
-* Install used packages
-pip install requests
-pip install lxml
+* Install packages
+pip install pytest requests lxml
 
 * Run tests
-python -m pytest
+py -m pytest
 
 * The book to learn automation with pytest
 https://blog.testproject.io/2019/07/16/python-test-automation-project-using-pytest/
