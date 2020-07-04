@@ -1,16 +1,21 @@
+import pytest
 import main
-from main import format_number as f
+
+ticker = 'epam'
+url = f'https://www.marketwatch.com/investing/stock/{ticker}/financials'
+
+ERROR = 0.05
+LOW = 1 - ERROR
+HIGH = 1 + ERROR
 
 def test_gross_income():
-    ticker = 'epam'
-    url = f'https://www.marketwatch.com/investing/stock/{ticker}/financials'
-    page_content = main.get_content(url)
+    page_content = main.get_page_content(url)
 
-    sales_revenue = float(f(page_content.xpath(main.sales_revenue_xpath)[0].text))
-    cost_of_goods = float(f(page_content.xpath(main.cost_of_goods_xpath)[0].text))
-    gross_income = float(f(page_content.xpath(main.gross_income_xpath)[0].text))
+    sales_revenue = main.get_financial_indicator_value(page_content, main.sales_revenue_xpath)
+    cost_of_goods = main.get_financial_indicator_value(page_content, main.cost_of_goods_xpath)
+    gross_income = main.get_financial_indicator_value(page_content, main.gross_income_xpath)
 
     expected_gross_income = sales_revenue - cost_of_goods
     actual_gross_income = gross_income
 
-    assert actual_gross_income * 0.95 < expected_gross_income < actual_gross_income * 1.05
+    assert actual_gross_income * LOW < expected_gross_income < actual_gross_income * HIGH
