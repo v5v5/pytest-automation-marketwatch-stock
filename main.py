@@ -22,6 +22,9 @@ url = f'https://www.marketwatch.com/investing/stock/{ticker}/financials'
 sales_revenue_xpath = '//*[@id="maincontent"]/div[1]/table[1]/tbody/tr[1]/td[6]'
 cost_of_goods_xpath = '//*[@id="maincontent"]/div[1]/table[1]/tbody/tr[3]/td[6]'
 gross_income_xpath = '//*[@id="maincontent"]/div[1]/table[1]/tbody/tr[9]/td[6]'
+sg_a_expense_xpath = '//*[@id="maincontent"]/div[1]/table[2]/tbody/tr[1]/td[6]'
+income_tax_xpath = '//*[@id="maincontent"]/div[1]/table[2]/tbody/tr[18]/td[6]'
+net_income_xpath = '//*[@id="maincontent"]/div[1]/table[2]/tbody/tr[28]/td[6]'
 
 page_content = get_page_content(url)
 
